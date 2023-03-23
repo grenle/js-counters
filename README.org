@@ -43,7 +43,7 @@ Counter is simple to use:
 #+begin_src plantuml :file readme-assets/class-diagram.png
 @startuml
 class Counter
-Object <|--- Counter_With_Last_Modified
+Counter <|--- Counter_With_Last_Modified
 Counter_With_Last_Modified <|--- Perishable_Counter
 Perishable_Counter <|--- Counter_With_Limit_Check
 @enduml
