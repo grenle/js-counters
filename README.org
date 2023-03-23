@@ -46,6 +46,15 @@ class Counter
 Counter <|--- Counter_With_Last_Modified
 Counter_With_Last_Modified <|--- Perishable_Counter
 Perishable_Counter <|--- Counter_With_Limit_Check
+
+Counter : inc(string key)
+Counter : get(string key)
+
+Perishable_Counter : clear()
+Perishable_Counter : clean()
+
+Counter_With_Limit_Check : is_excessive(string k)
+Counter_With_Limit_Check : is_within_limits(string k)
 @enduml
 #+end_src
 
