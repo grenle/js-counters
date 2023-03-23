@@ -47,6 +47,8 @@ Object <|--- ArrayList
 @enduml
 #+end_src
 
+[[file:readme-assets/class-diagram.png]]
+
 class Counter_With_Last_Modified extends Counter
 class Perishable_Counter extends Counter_With_Last_Modified
 class Counter_With_Limit_Check extends Perishable_Counter
