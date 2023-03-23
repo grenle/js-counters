@@ -14,7 +14,11 @@ Here are some simple but useful JavaScript classes. There are:
   check(key) for an associated value larger than established
   class-wide limit.
 
-Counter is simple to use:
+~Counter_With_Limit_Check~ can be used to count user ids and
+ips associated with request failures. They can then be
+ignored for a while, or forever.
+
+~Counter~ is simple to use:
 
 #+begin_example
 > const  c = new Counter()
@@ -28,5 +32,21 @@ Counter is simple to use:
 > c.get('baz')
 0
 #+end_example
+
+~Counter_With_Last_Modified~ doesn't add much. You can
+obtain the last modification of a count by querying the
+~last_modified~ property.
+
+~Perishable_Counter~ has two extra nullary methods:
+- ~clear()~: stops the periodic erasing of old keys
+- ~clean()~: the cleanup method, deletes keys that are too old.
+
+~Counter_With_Limit_Check~ has two extra unary methods:
+- ~is_excessive(k)~ has the count associated with k exceeded
+  the limit passed to the constructor?
+- ~is_within_limits(k)~ is the count associated with k
+  acceptable (i.e. less than limit?)
+
+Open an issue if these explanations are insufficient.
 
 [[file:readme-assets/class-diagram.png]]
