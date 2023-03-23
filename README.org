@@ -1,0 +1,52 @@
+#+TITLE: Simple Counters for javascript
+#+AUTHOR: Gregory Houldsworth (grenle)
+
+Here are some simple but useful JavaScript classes. There are:
+
+- ~Counter~: a simple counting device for keys. Similar in
+  spirit to Python.
+- ~Counter_With_Last_Modified~: A simple counting device for
+  keys. Also remembers last time a key was updated.
+- ~Perishable_Counter~ A simple counting device for
+  keys. Keys too old can be [automatically] erased and will
+  appear to have a count of 0.
+- ~Counter_With_Limit_Check~ Provides a counter that can
+  check(key) for an associated value larger than established
+  class-wide limit.
+
+Counter is simple to use:
+
+#+begin_example
+> const  c = new Counter()
+> c.inc('foo')
+> c.inc('foo')
+> c.inc('bar')
+> c.get('foo')
+2
+> c.get('bar')
+1
+> c.get('baz')
+0
+#+end_example
+
+#+begin_example.
+├── counter/
+├── counter_with_last_modified/
+├── counter_with_limit_check/
+├── date_time/
+├── default_trap/
+├── naughty/
+├── object_with_default/
+├── perishable_counter/
+#+end_example
+
+#+begin_src plantuml :file readme-assets/class-diagram.png
+@startuml
+class Object
+Object <|--- ArrayList
+@enduml
+#+end_src
+
+class Counter_With_Last_Modified extends Counter
+class Perishable_Counter extends Counter_With_Last_Modified
+class Counter_With_Limit_Check extends Perishable_Counter
